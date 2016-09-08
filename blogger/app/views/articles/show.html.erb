@@ -6,3 +6,10 @@
 <%= link_to "<< Back to Articles List", articles_path %>
 <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
 <%= link_to "Edit", edit_article_path(@article) %>
+
+<p><br>
+  Tags:
+    <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+    <% end %>
+</p>

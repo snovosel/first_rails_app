@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 
     @comment = Comment.new
     @comment.article_id = @article.id
+
   end
 
   def new
@@ -44,6 +45,12 @@ class ArticlesController < ApplicationController
     flash.notice = "Article '#{@article.title}' Updated!"
 
     redirect_to article_path(@article)
+  end
+
+  def tag_list
+    self.tags.collect do |tag|
+      tag.name
+    end.join(", ")
   end
 
 
